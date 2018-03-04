@@ -9,9 +9,9 @@ def call() {
 
     while(myBuild.rawBuild.getPreviousBuildInProgress() != null) {
 
-        echo("Build found" + myBuild.toString())
+        echo("Build found" + myBuild.rawBuild.toString())
 
-        myBuild.rawBuild.getPreviousBuildInProgress()
+        myBuild = myBuild.rawBuild.getPreviousBuildInProgress()
     }
 
 }
