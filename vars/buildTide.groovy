@@ -1,5 +1,6 @@
 #!groovy
 import com.tideaccount.android.jenkins.BuildType
+import com.tideaccount.android.jenkins.Util
 
 def call(BuildType... buildTypes) {
     echo "hi"
@@ -10,11 +11,7 @@ def call(BuildType... buildTypes) {
 
     }
 
-    withCredentials([file(credentialsId: 'keystore', variable: 'KEYSTORE_LOCATION'),
-                     string(credentialsId: 'keystore-password', variable: 'KEYSTORE_PASSWORD'),
-                     string(credentialsId: 'key-password', variable: 'KEY_PASSWORD')]) {
-       cloj(KEYSTORE_LOCATION)
-    }
+    Util.fetchCredentials cloj
 }
 
 
