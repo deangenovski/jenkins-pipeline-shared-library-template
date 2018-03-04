@@ -4,7 +4,7 @@ import com.tideaccount.android.jenkins.BuildType
 
 abstract class GradleOperation {
 
-    private List<BuildType> buildTypes
+    private List<BuildType> buildTypesField
     private String buildName
     private Integer buildNumber
 
@@ -14,12 +14,11 @@ abstract class GradleOperation {
             throw new IllegalStateException("Need at least one buildType to run this command")
         } else {
             System.out.println(buildTypes.size())
-            throw new IllegalStateException(buildTypes.size() + "")
         }
 
 
 
-        this.buildTypes = buildTypes
+        this.buildTypesField = buildTypes
         this.buildName = buildName
         this.buildNumber = buildNumber
 
@@ -34,7 +33,7 @@ abstract class GradleOperation {
     String getGradleBuildString() {
         def buildStrings = []
 
-        for (BuildType build : buildTypes) {
+        for (BuildType build : buildTypesField) {
             buildStrings.add(generateGradleArgumentFor(build))
         }
 
