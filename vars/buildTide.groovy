@@ -12,7 +12,7 @@ def call(BuildType... buildTypes) {
     for (BuildType build : buildTypes) {
         buildStrings.add(buildGradleArgFor(build))
     }
-    sh("./gradlew" + buildStrings.join(" "))
+    sh("./gradlew " + buildStrings.join(" "))
 }
 
 static def buildGradleArgFor(BuildType buildType) {
