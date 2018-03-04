@@ -4,9 +4,9 @@ import com.tideaccount.android.jenkins.Keystore
 
 import static com.tideaccount.android.jenkins.Util.withCredentials
 
-def call(BuildType... buildTypes) {
+def call(String buildNumber, String buildName, BuildType... buildTypes) {
 
-    echo(BUILD_NUMBER)
+    echo(buildName)
 
     withCredentials(this) { Keystore keystore ->
         echo("hi from clojure")
