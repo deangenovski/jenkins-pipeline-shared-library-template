@@ -4,9 +4,16 @@
 def call() {
 
     echo(currentBuild.toString())
-    while(currentBuild.rawBuild.getPreviousBuildInProgress() != null) {
-        currentBuild.rawBuild.getPreviousBuildInProgress().doKill()
+
+    def myBuild = currentBuild
+
+    while(myBuild.rawBuild.getPreviousBuildInProgress() != null) {
+
+        echo("Build found" + myBuild.toString())
+
+        myBuild.rawBuild.getPreviousBuildInProgress()
     }
+
 }
 
 
