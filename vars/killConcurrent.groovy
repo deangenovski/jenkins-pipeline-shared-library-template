@@ -11,7 +11,7 @@ def call() {
 
         echo("Build found" + myBuild.toString())
 
-        echo(myBuild.getExecution().isComplete())
+        echo(myBuild.getExecution().isComplete() + " ")
         echo(myBuild.getEnvironment(null).BUILD_NUMBER)
 
         myBuild = myBuild.getPreviousBuild()
