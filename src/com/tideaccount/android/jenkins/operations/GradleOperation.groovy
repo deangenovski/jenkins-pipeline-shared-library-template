@@ -6,9 +6,9 @@ import java.lang.reflect.Field
 
 abstract class GradleOperation implements Serializable {
 
-    private List<BuildType> buildTypesField
-    private String buildName
-    private Integer buildNumber
+    List<BuildType> buildTypesField
+    String buildName
+    Integer buildNumber
 
     GradleOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName) {
 
