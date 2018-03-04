@@ -5,7 +5,7 @@ class Util {
         script.withCredentials([script.file(credentialsId: 'keystore', variable: 'KEYSTORE_LOCATION'),
                                 script.string(credentialsId: 'keystore-password', variable: 'KEYSTORE_PASSWORD'),
                                 script.string(credentialsId: 'key-password', variable: 'KEY_PASSWORD')]) {
-            cloj(KEYSTORE_LOCATION)
+            cloj(script.KEYSTORE_LOCATION)
         }
     }
 }
