@@ -5,7 +5,7 @@ import com.tideaccount.android.jenkins.Constants
 
 class CompileOperation extends GradleOperation {
 
-    CompileOperation(BuildType... buildTypes) {
+    CompileOperation(List<BuildType> buildTypes) {
         super(buildTypes)
     }
 

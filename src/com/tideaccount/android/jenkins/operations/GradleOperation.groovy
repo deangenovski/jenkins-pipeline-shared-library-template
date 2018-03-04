@@ -6,9 +6,9 @@ abstract class GradleOperation {
 
     def buildTypes
 
-    GradleOperation(BuildType... buildTypes) {
+    GradleOperation(List<BuildType> buildTypes) {
 
-        if (buildTypes == null || buildTypes.length == 0) {
+        if (buildTypes == null || buildTypes.size() == 0) {
             throw new IllegalStateException("Need at least one buildType to run this command")
         }
 
@@ -16,7 +16,7 @@ abstract class GradleOperation {
 
     }
 
-    def generateGradleArgumentFor(BuildType type){
+    def generateGradleArgumentFor(BuildType type) {
         return String.format(getArgumentFormat(), type.env.capitalize(), type.user.capitalize())
     }
 
