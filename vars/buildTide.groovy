@@ -11,7 +11,7 @@ def call(BuildType... buildTypes) {
 
     }
 
-    Util.fetchCredentials cloj
+    Util.fetchCredentials(this,cloj)
 }
 
 
