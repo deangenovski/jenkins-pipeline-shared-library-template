@@ -20,6 +20,8 @@ abstract class GradleOperation {
         this.buildName = buildName
         this.buildNumber = buildNumber
 
+        print(buildTypes.toString())
+
     }
 
     def private generateGradleArgumentFor(BuildType type) {
