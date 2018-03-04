@@ -31,7 +31,7 @@ abstract class GradleOperation {
     String getGradleBuildString() {
         def buildStrings = []
 
-        print("here")
+        print(buildTypes.toString())
 
 //        for (BuildType build : buildTypes) {
 //            buildStrings.add(generateGradleArgumentFor(build))
