@@ -10,7 +10,7 @@ class TestOperation extends GradleOperation {
     }
 
     @Override
-    protected String getGetArgumentFormat() {
+    protected String getArgumentFormat() {
         return Constants.TEST_FORMAT
     }
 }

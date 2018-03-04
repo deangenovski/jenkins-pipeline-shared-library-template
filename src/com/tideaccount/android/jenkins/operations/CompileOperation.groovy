@@ -11,7 +11,7 @@ class CompileOperation extends GradleOperation {
     }
 
     @Override
-    protected String getGetArgumentFormat() {
+    protected String getArgumentFormat() {
         return Constants.COMPILE_FORMAT
     }
 }

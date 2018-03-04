@@ -20,29 +20,23 @@ abstract class GradleOperation {
         this.buildName = buildName
         this.buildNumber = buildNumber
 
-        print(buildTypes.toString())
-
     }
 
     def private generateGradleArgumentFor(BuildType type) {
         return String.format(getArgumentFormat(), type.env.capitalize(), type.user.capitalize())
     }
 
-    abstract protected String getGetArgumentFormat()
+    abstract protected String getArgumentFormat()
 
     String getGradleBuildString() {
         def buildStrings = []
 
-        print(buildTypes.toString())
+        for (BuildType build : buildTypes) {
+            buildStrings.add(generateGradleArgumentFor(build))
+        }
 
-//        for (BuildType build : buildTypes) {
-//            buildStrings.add(generateGradleArgumentFor(build))
-//        }
-//
-//        return "./gradlew " + buildStrings.join(" ") +
-//                " -PbuildNumber=${buildNumber} " +
-//                "-PbuildName=${buildName}"
-
-        return "fake"
+        return "./gradlew " + buildStrings.join(" ") +
+                " -PbuildNumber=${buildNumber} " +
+                "-PbuildName=${buildName}"
     }
 }

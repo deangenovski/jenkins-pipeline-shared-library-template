@@ -11,7 +11,7 @@ class DeployFabricOperation extends SignOperation {
     }
 
     @Override
-    protected String getGetArgumentFormat() {
+    protected String getArgumentFormat() {
         return Constants.UPLOAD_FORMAT
     }
 }

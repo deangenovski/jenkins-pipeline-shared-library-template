@@ -12,7 +12,7 @@ class AssembleOperation extends SignOperation {
     }
 
     @Override
-    protected String getGetArgumentFormat() {
+    protected String getArgumentFormat() {
         return Constants.ASSEMBLE_FORMAT
     }
 }

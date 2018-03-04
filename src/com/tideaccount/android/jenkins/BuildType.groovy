@@ -6,7 +6,6 @@ enum BuildType {
     QA_DUMMY("qa", "dummy"),
     QA_REAL("qa", "real"),
     STAGING_REAL("staging", "real")
-    ;
     private final String env
     private final String user
 

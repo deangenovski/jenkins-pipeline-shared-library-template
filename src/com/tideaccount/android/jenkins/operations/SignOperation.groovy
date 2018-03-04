@@ -13,7 +13,7 @@ abstract class SignOperation extends GradleOperation {
     }
 
     @Override
-    def getGradleBuildString() {
+    String getGradleBuildString() {
         def buildString = super.getGradleBuildString()
 
 
