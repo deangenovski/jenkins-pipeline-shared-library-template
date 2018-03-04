@@ -28,8 +28,10 @@ abstract class GradleOperation {
 
     abstract protected String getGetArgumentFormat()
 
-    def getGradleBuildString() {
+    String getGradleBuildString() {
         def buildStrings = []
+
+        print("here")
 
         for (BuildType build : buildTypes) {
             buildStrings.add(generateGradleArgumentFor(build))
