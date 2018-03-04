@@ -1,20 +1,13 @@
 #!groovy
 import com.tideaccount.android.jenkins.BuildType
 
-def call(BuildType... buildTypes) {
+def call(body) {
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    body()
 
-    if (buildTypes == null || buildTypes.length == 0) {
-        throw new IllegalStateException("Need atleast one buildType to run this command")
-    }
-
-    def buildStrings = []
-
-    for (BuildType build : buildTypes) {
-        buildStrings.add(buildGradleArgFor(build))
-    }
-    sh("./gradlew " + buildStrings.join(" "))
+    print(config.buildType)
+    print(config.keyPassword)
 }
 
-static def buildGradleArgFor(BuildType buildType) {
-    return String.format("compile%s%sReleaseSources", buildType.env.capitalize(), buildType.user.capitalize())
-}
