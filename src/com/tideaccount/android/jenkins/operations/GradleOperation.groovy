@@ -33,12 +33,14 @@ abstract class GradleOperation {
 
         print("here")
 
-        for (BuildType build : buildTypes) {
-            buildStrings.add(generateGradleArgumentFor(build))
-        }
+//        for (BuildType build : buildTypes) {
+//            buildStrings.add(generateGradleArgumentFor(build))
+//        }
+//
+//        return "./gradlew " + buildStrings.join(" ") +
+//                " -PbuildNumber=${buildNumber} " +
+//                "-PbuildName=${buildName}"
 
-        return "./gradlew " + buildStrings.join(" ") +
-                " -PbuildNumber=${buildNumber} " +
-                "-PbuildName=${buildName}"
+        return "fake"
     }
 }
