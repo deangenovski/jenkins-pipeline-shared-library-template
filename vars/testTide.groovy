@@ -1,13 +1,20 @@
 #!groovy
 import com.tideaccount.android.jenkins.BuildType
+import com.tideaccount.android.jenkins.Constants
+import com.tideaccount.android.jenkins.Keystore
 
-def call(Integer buildNumber, String buildName, BuildType... buildTypes) {
+import static com.tideaccount.android.jenkins.Util.gradleOperation
+import static com.tideaccount.android.jenkins.Util.withCredentials
 
-    echo(new TestOperation(
-            buildTypes.toList(),
-            buildNumber,
-            buildName,
-    ).getGradleBuildString())
+def call(Integer buildNumberArg, String buildNameArg, BuildType... buildTypesArg) {
+
+    gradleOperation(this) {
+        buildStepFormat = Constants.TEST_FORMAT
+        buildTypes = buildTypesArg.toList()
+        buildNumber = buildNumberArg
+        buildName = buildNameArg
+
+    }
 
 }
 
