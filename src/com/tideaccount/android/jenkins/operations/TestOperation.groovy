@@ -3,15 +3,14 @@ package com.tideaccount.android.jenkins.operations
 import com.tideaccount.android.jenkins.BuildType
 import com.tideaccount.android.jenkins.Constants
 
-class CompileOperation extends GradleOperation {
+class TestOperation extends GradleOperation {
 
-
-    CompileOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName) {
+    TestOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName) {
         super(buildTypes, buildNumber, buildName)
     }
 
     @Override
     protected String getGetArgumentFormat() {
-        return Constants.COMPILE_FORMAT
+        return Constants.TEST_FORMAT
     }
 }

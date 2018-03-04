@@ -4,15 +4,14 @@ import com.tideaccount.android.jenkins.BuildType
 import com.tideaccount.android.jenkins.Constants
 import com.tideaccount.android.jenkins.Keystore
 
-class AssembleOperation extends SignOperation {
+class DeployFabricOperation extends SignOperation {
 
-
-    AssembleOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName, Keystore keystore) {
+    DeployFabricOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName, Keystore keystore) {
         super(buildTypes, buildNumber, buildName, keystore)
     }
 
     @Override
     protected String getGetArgumentFormat() {
-        return Constants.ASSEMBLE_FORMAT
+        return Constants.UPLOAD_FORMAT
     }
 }

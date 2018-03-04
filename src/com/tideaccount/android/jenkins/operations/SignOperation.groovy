@@ -7,8 +7,8 @@ abstract class SignOperation extends GradleOperation {
 
     private Keystore keystore
 
-    SignOperation(List<BuildType> buildTypes, Keystore keystore) {
-        super(buildTypes)
+    SignOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName, Keystore keystore) {
+        super(buildTypes, buildNumber, buildName)
         this.keystore = keystore
     }
 
@@ -20,13 +20,12 @@ abstract class SignOperation extends GradleOperation {
         return buildString + " " + getSignString()
     }
 
-    String getSignString() {
+    private String getSignString() {
         return "-Ptide.signing=true " +
                 "-PkeyStore=${keystore.keystore} " +
                 "-PkeyStorePassword=${keystore.keystorePassword} " +
                 "-Palias=tide " +
-                "-PkeyPass=${keystore.keystorePassword} " +
-                "-PbuildNumber=${BUILD_NUMBER} " +
-                "-PbuildName=${BRANCH_NAME}"
+                "-PkeyPass=${keystore.keystorePassword} "
+
     }
 }

@@ -4,23 +4,29 @@ import com.tideaccount.android.jenkins.BuildType
 
 abstract class GradleOperation {
 
-    def buildTypes
+    private List<BuildType> buildTypes
+    private String buildName
+    private Integer buildNumber
 
-    GradleOperation(List<BuildType> buildTypes) {
+    GradleOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName) {
 
         if (buildTypes == null || buildTypes.size() == 0) {
             throw new IllegalStateException("Need at least one buildType to run this command")
         }
 
+
+
         this.buildTypes = buildTypes
+        this.buildName = buildName
+        this.buildNumber = buildNumber
 
     }
 
-    def generateGradleArgumentFor(BuildType type) {
+    def private generateGradleArgumentFor(BuildType type) {
         return String.format(getArgumentFormat(), type.env.capitalize(), type.user.capitalize())
     }
 
-    abstract String getGetArgumentFormat()
+    abstract protected String getGetArgumentFormat()
 
     def getGradleBuildString() {
         def buildStrings = []
@@ -29,6 +35,8 @@ abstract class GradleOperation {
             buildStrings.add(generateGradleArgumentFor(build))
         }
 
-        return "./gradlew " + buildStrings.join(" ")
+        return "./gradlew " + buildStrings.join(" ") +
+                " -PbuildNumber=${buildNumber} " +
+                "-PbuildName=${buildName}"
     }
 }
