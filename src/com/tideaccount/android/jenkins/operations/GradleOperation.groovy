@@ -34,17 +34,15 @@ abstract class GradleOperation implements Serializable {
 
     String getGradleBuildString() {
 
-//        def buildStrings = []
-//
-//        for (BuildType build : buildTypesField) {
-//            buildStrings.add(generateGradleArgumentFor(build))
-//        }
-//
-//        return "./gradlew " + buildStrings.join(" ") +
-//                " -PbuildNumber=${buildNumber} " +
-//                "-PbuildName=${buildName}"
+        def buildStrings = []
 
-        def fields = getClass().getFields()
-        return fields.collect([], { elemnt -> elemnt.toString() }).join("\n")
+        for (BuildType build : buildTypesField) {
+            buildStrings.add(generateGradleArgumentFor(build))
+        }
+
+        return "./gradlew " + buildStrings.join(" ") +
+                " -PbuildNumber=${buildNumber} " +
+                "-PbuildName=${buildName}"
+
     }
 }
