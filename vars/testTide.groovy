@@ -6,7 +6,7 @@ import com.tideaccount.android.jenkins.Keystore
 import static com.tideaccount.android.jenkins.Util.gradleOperation
 import static com.tideaccount.android.jenkins.Util.withCredentials
 
-def call(Integer buildNumberArg, String buildNameArg, BuildType... buildTypesArg) {
+def call(BuildType... buildTypesArg) {
 
     gradleOperation(this) {
         buildStepFormat = Constants.TEST_FORMAT
