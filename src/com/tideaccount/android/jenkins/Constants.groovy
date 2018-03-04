@@ -1,4 +1,4 @@
-package se.diabol.jenkins.pipeline.lib
+package com.tideaccount.android.jenkins
 
 class Constants {
 
