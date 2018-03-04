@@ -2,7 +2,7 @@ package com.tideaccount.android.jenkins.operations
 
 import com.tideaccount.android.jenkins.BuildType
 
-abstract class GradleOperation {
+abstract class GradleOperation implements Serializable {
 
     private List<BuildType> buildTypesField
     private String buildName
@@ -34,14 +34,12 @@ abstract class GradleOperation {
 
         def buildStrings = []
 
-//        for (BuildType build : buildTypesField) {
-//            buildStrings.add(generateGradleArgumentFor(build))
-//        }
+        for (BuildType build : buildTypesField) {
+            buildStrings.add(generateGradleArgumentFor(build))
+        }
 
-//        return "./gradlew " + buildStrings.join(" ") +
-//                " -PbuildNumber=${buildNumber} " +
-//                "-PbuildName=${buildName}"
-
-        return toString()
+        return "./gradlew " + buildStrings.join(" ") +
+                " -PbuildNumber=${buildNumber} " +
+                "-PbuildName=${buildName}"
     }
 }
