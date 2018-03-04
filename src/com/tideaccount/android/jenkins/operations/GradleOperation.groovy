@@ -34,9 +34,9 @@ abstract class GradleOperation {
 
         def buildStrings = []
 
-        for (BuildType build : buildTypesField) {
-            buildStrings.add(generateGradleArgumentFor(build))
-        }
+//        for (BuildType build : buildTypesField) {
+//            buildStrings.add(generateGradleArgumentFor(build))
+//        }
 
 //        return "./gradlew " + buildStrings.join(" ") +
 //                " -PbuildNumber=${buildNumber} " +
