@@ -21,10 +21,15 @@ class Util {
     static def gradleOperation(script, body) {
 
         script.sh("printenv")
+
         def config = new GradleOperationBuilder()
+        body.buildNumber = script.buildNumber
+        body.buildName = script.buildName
+        
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
         body()
+
 
         script.sh(config.getGradleBuildString())
 
