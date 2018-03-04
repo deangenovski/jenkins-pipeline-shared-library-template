@@ -4,11 +4,11 @@ import com.tideaccount.android.jenkins.BuildType
 import com.tideaccount.android.jenkins.Constants
 import com.tideaccount.android.jenkins.Keystore
 
-class AssembleOperation extends SignOperation {
+class AssembleOperation extends SignOperationTest {
 
 
     AssembleOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName, Keystore keystore) {
-        super(buildTypes, buildNumber, buildName, keystore)
+        super(buildTypes, buildNumber, buildName)
     }
 
     @Override
