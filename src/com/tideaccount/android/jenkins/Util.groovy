@@ -1,5 +1,8 @@
 package com.tideaccount.android.jenkins
 
+
+import com.tideaccount.android.jenkins.operations.GradleOperationBuilder
+
 class Util {
     static def withCredentials(script, Closure cloj) {
         script.withCredentials([script.file(credentialsId: 'keystore', variable: 'KEYSTORE_LOCATION'),
@@ -14,4 +17,16 @@ class Util {
             cloj(keystore)
         }
     }
+
+    static def gradleOperation(script, body) {
+        def config = new GradleOperationBuilder()
+        body.resolveStrategy = Closure.DELEGATE_FIRST
+        body.delegate = config
+        body()
+
+        script.echo(config.getGradleBuildString())
+
+    }
+
+
 }

@@ -1,19 +1,20 @@
 #!groovy
 import com.tideaccount.android.jenkins.BuildType
 import com.tideaccount.android.jenkins.Keystore
-import com.tideaccount.android.jenkins.operations.AssembleOperation
-import com.tideaccount.android.jenkins.operations.CompileOperation
 
+import static com.tideaccount.android.jenkins.Util.gradleOperation
 import static com.tideaccount.android.jenkins.Util.withCredentials
 
-def call(Integer buildNumber, String buildName, BuildType... buildTypes) {
+def call(Integer buildNumberArg, String buildNameArg, BuildType... buildTypesArg) {
 
-    withCredentials(this) { Keystore keystore ->
-        echo(new AssembleOperation(
-                buildTypes.toList(),
-                buildNumber,
-                buildName,
-                keystore).getGradleBuildString())
+    withCredentials(this) { Keystore keystoreArg ->
+        gradleOperation(this) {
+            buildTypes = buildTypesArg.toList()
+            buildNumber = buildNumberArg
+            buildName = buildNameArg
+            keystore = keystoreArg
+        }
+        
     }
 
 }
