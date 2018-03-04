@@ -31,14 +31,17 @@ abstract class GradleOperation {
     abstract protected String getArgumentFormat()
 
     String getGradleBuildString() {
+
         def buildStrings = []
 
-//        for (BuildType build : buildTypesField) {
-//            buildStrings.add(generateGradleArgumentFor(build))
-//        }
+        for (BuildType build : buildTypesField) {
+            buildStrings.add(generateGradleArgumentFor(build))
+        }
 
-        return "./gradlew " + buildStrings.join(" ") +
-                " -PbuildNumber=${buildNumber} " +
-                "-PbuildName=${buildName}"
+//        return "./gradlew " + buildStrings.join(" ") +
+//                " -PbuildNumber=${buildNumber} " +
+//                "-PbuildName=${buildName}"
+
+        return toString()
     }
 }
