@@ -2,10 +2,8 @@ package com.tideaccount.android.jenkins.operations
 
 import com.tideaccount.android.jenkins.BuildType
 
-import java.lang.reflect.Field
-
 abstract class GradleOperation implements Serializable {
-
+//Jenkins does some weird stuff and cannot handle private fields and methods correctly :(
     List<BuildType> buildTypesField
     String buildName
     Integer buildNumber
