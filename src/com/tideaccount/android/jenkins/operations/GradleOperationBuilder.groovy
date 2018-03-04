@@ -7,7 +7,7 @@ class GradleOperationBuilder implements Serializable {
 //Jenkins does some weird stuff and cannot handle private fields and methods correctly :(
     List<BuildType> buildTypes
     String buildName
-    Integer buildNumber
+    String buildNumber
     Keystore keystore
     String buildStepFormat
 
