@@ -24,19 +24,22 @@ class GradleOperationBuilder implements Serializable {
             buildStrings.add(generateGradleArgumentFor(build))
         }
 
-        def defaultBuildScript = "./gradlew " + buildStrings.join(" ") +
-                " -PbuildNumber=${buildNumber} " +
-                "-PbuildName=${buildName}"
+        def buildScript = "./gradlew " + buildStrings.join(" ")
+
+        if (buildName != null && buildNumber != null) {
+            buildScript = buildScript +
+                    " -PbuildNumber=${buildNumber} " +
+                    "-PbuildName=${buildName}"
+        }
 
         if (keystore != null) {
-            return defaultBuildScript + " -Ptide.signing=true " +
+            buildScript = buildScript + " -Ptide.signing=true " +
                     "-PkeyStore=${keystore.keystore} " +
                     "-PkeyStorePassword=${keystore.keystorePassword} " +
                     "-Palias=tide " +
                     "-PkeyPass=${keystore.keystorePassword} "
-        } else {
-            return defaultBuildScript
         }
+        return buildScript
 
     }
 }
