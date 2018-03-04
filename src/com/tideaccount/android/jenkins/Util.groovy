@@ -24,7 +24,7 @@ class Util {
         body.delegate = config
         body()
 
-        script.sh(config.getGradleBuildString())
+        script.echo(config.getGradleBuildString())
 
     }
 
