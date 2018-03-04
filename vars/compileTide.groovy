@@ -7,7 +7,7 @@ import static com.tideaccount.android.jenkins.Util.gradleOperation
 import static com.tideaccount.android.jenkins.Util.withCredentials
 
 def call(Integer buildNumberArg, String buildNameArg, BuildType... buildTypesArg) {
-
+    pwd()
     gradleOperation(this) {
         buildStepFormat = Constants.COMPILE_FORMAT
         buildTypes = buildTypesArg.toList()
