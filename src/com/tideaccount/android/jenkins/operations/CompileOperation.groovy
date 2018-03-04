@@ -3,7 +3,7 @@ package com.tideaccount.android.jenkins.operations
 import com.tideaccount.android.jenkins.BuildType
 import com.tideaccount.android.jenkins.Constants
 
-class CompileOperation extends GradleOperation {
+class CompileOperation extends GradleOperation implements Serializable {
 
 
     CompileOperation(List<BuildType> buildTypes, Integer buildNumber, String buildName) {

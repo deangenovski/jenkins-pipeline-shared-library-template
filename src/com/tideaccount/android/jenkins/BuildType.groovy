@@ -1,6 +1,6 @@
 package com.tideaccount.android.jenkins
 
-enum BuildType {
+enum BuildType implements Serializable{
 
 
     QA_DUMMY("qa", "dummy"),

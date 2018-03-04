@@ -45,6 +45,6 @@ abstract class GradleOperation implements Serializable {
 //                "-PbuildName=${buildName}"
 
         def fields = getClass().getFields()
-        return fields.collect([],{elemnt -> elemnt.toString()}).join("\n")
+        return fields.collect([], { elemnt -> elemnt.toString() }).join("\n")
     }
 }
