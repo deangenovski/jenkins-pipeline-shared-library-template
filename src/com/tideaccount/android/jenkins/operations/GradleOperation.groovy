@@ -26,7 +26,7 @@ abstract class GradleOperation implements Serializable {
 
     }
 
-    def private generateGradleArgumentFor(BuildType type) {
+    def generateGradleArgumentFor(BuildType type) {
         return String.format(getArgumentFormat(), type.env.capitalize(), type.user.capitalize())
     }
 
