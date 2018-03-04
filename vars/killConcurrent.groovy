@@ -5,13 +5,16 @@ def call() {
 
     echo(currentBuild.toString())
 
-    def myBuild = currentBuild
+    def myBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
 
-    while(myBuild.rawBuild.getPreviousBuildInProgress() != null) {
+    while (myBuild != null) {
 
-        echo("Build found" + myBuild.rawBuild.toString())
+        echo("Build found" + myBuild.toString())
 
-        myBuild = myBuild.rawBuild.getPreviousBuildInProgress()
+        echo(myBuild.getExecution().isComplete())
+        echo(myBuild.getEnvironment(null).BUILD_NUMBER)
+
+        myBuild = myBuild.getPreviousBuild()
     }
 
 }
