@@ -20,8 +20,6 @@ class Util {
 
     static def gradleOperation(script, body) {
 
-        script.echo(script.buildName)
-
         def config = new GradleOperationBuilder()
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
