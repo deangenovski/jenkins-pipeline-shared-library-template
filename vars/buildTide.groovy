@@ -1,13 +1,7 @@
 #!groovy
 import com.tideaccount.android.jenkins.BuildType
 
-def call(Closure body) {
-    def config = [:]
-    body.resolveStrategy = Closure.DELEGATE_FIRST
-    body.delegate = config
-    body()
-
-    print(config.buildType)
-    print(config.keyPassword)
+def call(List<BuildType> buildTypes, String keystore, String keystorePassword, String keyAlias, String keyPassword) {
+    echo("hi")
 }
 
