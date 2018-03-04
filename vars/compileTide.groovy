@@ -10,7 +10,7 @@ def call(Integer buildNumber, String buildName, BuildType... buildTypes) {
     withCredentials(this) { Keystore keystore ->
 
         for (BuildType buildType : buildTypes) {
-            echo(buildType)
+            echo(buildType.toString())
         }
 
         echo(new CompileOperation(
