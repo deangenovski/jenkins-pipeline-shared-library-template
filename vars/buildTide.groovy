@@ -1,7 +1,7 @@
 #!groovy
 import com.tideaccount.android.jenkins.BuildType
 
-def call(body) {
+def call(Closure body) {
     def config = [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
