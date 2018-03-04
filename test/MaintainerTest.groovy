@@ -1,6 +1,6 @@
 import org.junit.BeforeClass
 import org.junit.Test
-import maintainer
+import buildTide
 
 class MaintainerTest {
 
@@ -11,7 +11,7 @@ class MaintainerTest {
      */
     @BeforeClass
     static void setup() {
-        maintainer.metaClass.echo {
+        buildTide.metaClass.echo {
             println it
             return it
         }
@@ -19,7 +19,7 @@ class MaintainerTest {
 
     @Test
     void shouldOutputMaintainerInformation() {
-        def varsFile = new maintainer()
+        def varsFile = new buildTide()
         def expectedArg = 'Diabol AB'
         def returnVal = varsFile.call(expectedArg)
 
