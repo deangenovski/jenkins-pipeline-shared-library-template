@@ -20,6 +20,7 @@ class Util {
 
     static def gradleOperation(script, body) {
 
+        script.sh("printenv")
         def config = new GradleOperationBuilder()
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
