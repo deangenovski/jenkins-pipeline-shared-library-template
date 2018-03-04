@@ -12,6 +12,9 @@ abstract class GradleOperation {
 
         if (buildTypes == null || buildTypes.size() == 0) {
             throw new IllegalStateException("Need at least one buildType to run this command")
+        } else {
+            System.out.println(buildTypes.size())
+            throw new IllegalStateException(buildTypes.size() + "")
         }
 
 
