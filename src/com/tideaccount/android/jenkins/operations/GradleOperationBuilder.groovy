@@ -37,7 +37,7 @@ class GradleOperationBuilder implements Serializable {
                     "-PkeyStore=${keystore.keystore} " +
                     "-PkeyStorePassword=${keystore.keystorePassword} " +
                     "-Palias=tide " +
-                    "-PkeyPass=${keystore.keystorePassword} "
+                    "-PkeyPass=${keystore.keyPassword} "
         }
         return buildScript
 
