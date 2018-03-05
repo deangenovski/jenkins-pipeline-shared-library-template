@@ -25,8 +25,10 @@ class Util {
         body.delegate = config
         body()
 
-        config.buildNumber = script.buildNumber
-        config.buildName = script.buildName
+        if (script.hasProperty('buildNumber') && script.hasProperty('buildName')) {
+            config.buildNumber = script.buildNumber
+            config.buildName = script.buildName
+        }
 
         script.sh(config.getGradleBuildString())
 
