@@ -7,8 +7,13 @@ def call() {
 
     while (build != null) {
 
-        if(build.getEnvironment(null).BRANCH_NAME == BRANCH_NAME){
+        if (build.getEnvironment(null).BRANCH_NAME == BRANCH_NAME) {
+            echo("Killing")
             build.doKill()
+        } else {
+            echo("not killing")
+            echo(build.getEnvironment(null).BRANCH_NAME)
+            echo(BRANCH_NAME)
         }
 
         build = build.getPreviousBuildInProgress()
