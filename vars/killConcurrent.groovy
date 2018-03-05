@@ -12,7 +12,7 @@ def call() {
             build.doKill()
         } else {
             echo("not killing")
-            echo(build.getEnvironment(null).BRANCH_NAME)
+            echo(build.getEnvironment(null).toString())
             echo(BRANCH_NAME)
         }
 
