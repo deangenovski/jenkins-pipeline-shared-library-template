@@ -11,8 +11,6 @@ def call(BuildType... buildTypesArg) {
     gradleOperation(this) {
         buildStepFormat = Constants.TEST_FORMAT
         buildTypes = buildTypesArg.toList()
-        buildNumber = buildNumberArg
-        buildName = buildNameArg
 
     }
 
