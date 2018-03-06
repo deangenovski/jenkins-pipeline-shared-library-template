@@ -25,7 +25,7 @@ class Util {
         body.delegate = config
         body()
 
-        if (script.hasProperty('buildNumber') && script.hasProperty('buildName')) {
+        if (script.hasVariable('buildNumber') && script.hasVariable('buildName')) {
             config.buildNumber = script.buildNumber
             config.buildName = script.buildName
         }
