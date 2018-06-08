@@ -24,7 +24,7 @@ class GradleOperationBuilder implements Serializable {
             buildStrings.add(generateGradleArgumentFor(build))
         }
 
-        def buildScript = "./gradlew " + buildStrings.join(" ")
+        def buildScript = "./gradlew " + buildStrings.join(" ") + " --no-daemon "
 
         if (buildName != null && buildNumber != null) {
             buildScript = buildScript +
